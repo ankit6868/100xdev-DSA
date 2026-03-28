@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import NotesTab from "./NotesTab";
 
 const courseData = [
   { week: "Week 0", id: "0.1", title: "Introduction, Settings up IDE", duration: "15:05", category: "Basics" },
@@ -421,6 +422,7 @@ export default function App() {
             { key: "plan", label: "📅 15-Day Plan" },
             { key: "course", label: "🎬 Course Videos" },
             { key: "dsa", label: "💻 DSA Questions" },
+            { key: "notes", label: "📓 Notes" },
           ].map(tab => (
             <button key={tab.key} onClick={() => setActiveTab(tab.key)} style={{
               padding: "14px 20px", border: "none", background: "none", cursor: "pointer",
@@ -578,6 +580,8 @@ export default function App() {
             ))}
           </div>
         )}
+
+        {activeTab === "notes" && <NotesTab />}
       </div>
     </div>
   );
